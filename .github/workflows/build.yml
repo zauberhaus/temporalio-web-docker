@@ -64,7 +64,7 @@ jobs:
           --tag "${{ steps.prepare.outputs.server_image }}:$V1" \
           --tag "${{ steps.prepare.outputs.server_image }}:${{ steps.prepare.outputs.hash }}" \
           --tag "${{ steps.prepare.outputs.server_image }}:latest" \
-          --file Dockerfile.server .
+          --file Dockerfile .
 
     - name: Create Release
       id: create_release
