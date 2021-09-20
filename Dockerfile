@@ -3,7 +3,7 @@ WORKDIR /usr/build
 
 # install git & openssh to fetch github packages
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh make g++ cmake python3 jq grpx grpc-dev
+    apk add --no-cache bash git openssh make g++ cmake python3 jq grpc grpc-dev
 
 WORKDIR /src
 
