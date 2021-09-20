@@ -1,9 +1,9 @@
-FROM node:14-alpine as builder
+FROM node:14-alpine3.14 as builder
 WORKDIR /usr/build
 
 # install git & openssh to fetch github packages
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh make g++ cmake python
+    apk add --no-cache bash git openssh make g++ cmake python jq
 
 WORKDIR /src
 
@@ -19,7 +19,7 @@ ENV TEMPORAL_WEB_ROOT_PATH=/
 RUN npm run build-production
 
 # Build final image
-FROM node:14-alpine
+FROM node:14-alpine3.14
 WORKDIR /usr/app
 
 COPY --from=builder /src/ ./
