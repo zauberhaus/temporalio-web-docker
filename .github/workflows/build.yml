@@ -57,7 +57,7 @@ jobs:
 
     - name: Build server image
       run: |
-        TAG=$(echo "${{ steps.prepare.outputs.version }}" | sed -e 's/^v//' | sed -e 's/-.*$//')
+        TAG=$(echo "${{ steps.prepare.outputs.version }}" | sed -e 's/^v\.*//' | sed -e 's/-.*$//')
         docker buildx build \
           --output type=image,name=${{ steps.prepare.outputs.server_image }},push=true \
           --platform ${{ steps.prepare.outputs.docker_platforms }} \
